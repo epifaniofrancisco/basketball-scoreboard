@@ -14,6 +14,9 @@ function updateScore(team, points) {
 function resetScore() {
 	homeScore.textContent = 0;
 	guestScore.textContent = 0;
+
+	homeScore.parentElement.classList.remove("leading");
+	guestScore.parentElement.classList.remove("leading");
 }
 
 function highlightLeader() {
