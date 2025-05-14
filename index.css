@@ -12,6 +12,7 @@
 	--text-color: #eeeeee;
 	--score-bg: #080001;
 	--score-color: #f94f6d;
+    --leading-color: #4caf50;
 }
 
 * {
@@ -90,8 +91,13 @@ button:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.score-board.leading {
+    box-shadow: 0 0 15px var(--leading-color);
+    border: 1px solid var(--leading-color);
+}
+
 .score-board h4 {
-	font-size: 100px;
+	font-size: 72px;
 	color: var(--score-color);
 	margin-top: 12px;
 }

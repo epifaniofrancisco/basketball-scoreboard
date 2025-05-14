@@ -13,24 +13,24 @@
         <div class="board">
             <h3>HOME</h3>
             <div class="score-board">
-                <h4>0</h4>
+                <h4 id="home-score">0</h4>
             </div>
             <div class="add-points-btns">
-                <button class="add-points-btn" id="home-1">+1</button>
-                <button class="add-points-btn" id="home-2">+2</button>
-                <button class="add-points-btn" id="home-3">+3</button>
+                <button class="add-points-btn" onclick="updateScore('home', 1)" id="home-1">+1</button>
+                <button class="add-points-btn" onclick="updateScore('home', 2)" id="home-2">+2</button>
+                <button class="add-points-btn" onclick="updateScore('home', 3)" id="home-3">+3</button>
             </div>
         </div>
-        <button id="new-game">NEW GAME</button>
+        <button id="new-game" onclick="resetScore()">NEW GAME</button>
         <div class="board">
             <h3>GUEST</h3>
             <div class="score-board">
-                <h4>0</h4>
+                <h4 id="guest-score">0</h4>
             </div>
             <div class="add-points-btns">
-                <button class="add-points-btn" id="guest-1">+1</button>
-                <button class="add-points-btn" id="guest-2">+2</button>
-                <button class="add-points-btn" id="guest-3">+3</button>
+                <button class="add-points-btn" onclick="updateScore('guest', 1)" id="guest-1">+1</button>
+                <button class="add-points-btn" onclick="updateScore('guest', 2)" id="guest-2">+2</button>
+                <button class="add-points-btn" onclick="updateScore('guest', 3)" id="guest-3">+3</button>
             </div>
         </div>
     </div>
