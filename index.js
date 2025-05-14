@@ -2,36 +2,43 @@ const homeScore = document.getElementById("home-score");
 const guestScore = document.getElementById("guest-score");
 
 function updateScore(team, points) {
-	if (team === "home") {
-		homeScore.textContent = parseInt(homeScore.textContent) + points;
-	} else if (team === "guest") {
-		guestScore.textContent = parseInt(guestScore.textContent) + points;
-	}
+    if (team === "home") {
+        homeScore.textContent = parseInt(homeScore.textContent) + points;
+    } else if (team === "guest") {
+        guestScore.textContent = parseInt(guestScore.textContent) + points;
+    }
 
-	highlightLeader();
+    highlightTeams();
 }
 
 function resetScore() {
-	homeScore.textContent = 0;
-	guestScore.textContent = 0;
+    homeScore.textContent = 0;
+    guestScore.textContent = 0;
 
-	homeScore.parentElement.classList.remove("leading");
-	guestScore.parentElement.classList.remove("leading");
+    const homeBoard = homeScore.closest(".score-board");
+    const guestBoard = guestScore.closest(".score-board");
+    
+    homeBoard.classList.remove("leading", "losing");
+    guestBoard.classList.remove("leading", "losing");
 }
 
-function highlightLeader() {
-	const homeBoard = homeScore.closest(".score-board");
-	const guestBoard = guestScore.closest(".score-board");
+function highlightTeams() {
+    const homeBoard = homeScore.closest(".score-board");
+    const guestBoard = guestScore.closest(".score-board");
 
-	const homePoints = parseInt(homeScore.textContent);
-	const guestPoints = parseInt(guestScore.textContent);
+    const homePoints = parseInt(homeScore.textContent);
+    const guestPoints = parseInt(guestScore.textContent);
 
-	homeBoard.classList.remove("leading");
-	guestBoard.classList.remove("leading");
+    homeBoard.classList.remove("leading", "losing");
+    guestBoard.classList.remove("leading", "losing");
 
-	if (homePoints > guestPoints) {
-		homeBoard.classList.add("leading");
-	} else if (guestPoints > homePoints) {
-		guestBoard.classList.add("leading");
-	}
+    if (homePoints === guestPoints) return;
+
+    if (homePoints > guestPoints) {
+        homeBoard.classList.add("leading");
+        guestBoard.classList.add("losing");
+    } else {
+        guestBoard.classList.add("leading");
+        homeBoard.classList.add("losing");
+    }
 }

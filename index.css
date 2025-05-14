@@ -13,6 +13,7 @@
 	--score-bg: #080001;
 	--score-color: #f94f6d;
     --leading-color: #4caf50;
+	--loser-color: #f44336;
 }
 
 * {
@@ -94,6 +95,12 @@ button:hover {
 .score-board.leading {
     box-shadow: 0 0 15px var(--leading-color);
     border: 1px solid var(--leading-color);
+}
+
+.score-board.losing {
+    box-shadow: 0 0 15px var(--loser-color);
+    border: 1px solid var(--loser-color);
+    opacity: 0.9;
 }
 
 .score-board h4 {
